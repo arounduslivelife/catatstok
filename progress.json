@@ -1,0 +1,64 @@
+{
+  "project": "CatatStok SaaS App",
+  "version": "0.1.0",
+  "status": "Planning",
+  "milestones": [
+    {
+      "id": "m1",
+      "name": "Planning & Architecture",
+      "status": "in_progress",
+      "tasks": [
+        {
+          "id": "t1.1",
+          "name": "Design Database Schema",
+          "status": "pending"
+        },
+        {
+          "id": "t1.2",
+          "name": "Create Project Structure",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "name": "Backend API Core",
+      "status": "pending",
+      "tasks": [
+        {
+          "id": "t2.1",
+          "name": "Setup Database Connection",
+          "status": "pending"
+        },
+        {
+          "id": "t2.2",
+          "name": "Auth Endpoint (Register & Login)",
+          "status": "pending"
+        },
+        {
+          "id": "t2.3",
+          "name": "Product Endpoints",
+          "status": "pending"
+        },
+        {
+          "id": "t2.4",
+          "name": "Transaction Endpoints",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "name": "Frontend Web App",
+      "status": "pending",
+      "tasks": []
+    },
+    {
+      "id": "m4",
+      "name": "Flutter Mobile App",
+      "status": "pending",
+      "tasks": []
+    }
+  ],
+  "last_updated": "2026-08-16T22:11:03+07:00"
+}
