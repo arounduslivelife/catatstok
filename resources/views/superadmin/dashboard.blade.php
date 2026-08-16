@@ -37,8 +37,8 @@
         </h3>
         <form action="{{ route('superadmin.change-password') }}" method="POST" style="display: flex; gap: 8px;">
             @csrf
-            <input type="password" name="password" class="form-control" placeholder="Masukkan password baru..." required style="flex: 1; height: 44px; border-radius: 8px; border: 1px solid var(--border); padding: 0 12px;">
-            <button type="submit" class="btn btn-primary" style="height: 44px; padding: 0 16px; border-radius: 8px; font-weight: 600;">Simpan</button>
+            <input type="password" name="password" class="form-control" placeholder="Masukkan password baru..." required style="flex: 1; min-width: 0; height: 44px; border-radius: 8px; border: 1px solid var(--border); padding: 0 12px;">
+            <button type="submit" class="btn btn-primary" style="width: auto; flex: 0 0 auto; height: 44px; padding: 0 16px; border-radius: 8px; font-weight: 600;">Simpan</button>
         </form>
     </div>
     
