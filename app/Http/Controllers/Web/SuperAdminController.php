@@ -49,4 +49,17 @@ class SuperAdminController extends Controller
 
         return back()->with('success', 'Status diubah menjadi Trial untuk ' . $workspace->name . '. Masa aktif mengikuti tanggal yang di-set.');
     }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|min:6'
+        ]);
+
+        $user = auth()->user();
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return back()->with('success', 'Password Superadmin berhasil diubah!');
+    }
 }

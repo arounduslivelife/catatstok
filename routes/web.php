@@ -121,4 +121,5 @@ Route::middleware(['auth', 'superadmin'])->prefix('superadmin')->group(function(
     Route::post('/workspaces/{workspace}/toggle', [App\Http\Controllers\Web\SuperAdminController::class, 'toggleStatus']);
     Route::post('/workspaces/{workspace}/set-date', [App\Http\Controllers\Web\SuperAdminController::class, 'setSubscription']);
     Route::post('/workspaces/{workspace}/start-trial', [App\Http\Controllers\Web\SuperAdminController::class, 'startTrial']);
+    Route::post('/change-password', [App\Http\Controllers\Web\SuperAdminController::class, 'changePassword'])->name('superadmin.change-password');
 });

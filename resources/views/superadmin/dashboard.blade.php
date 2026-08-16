@@ -23,7 +23,27 @@
 </div>
 @endif
 
+@if($errors->any())
+<div style="margin: 20px 20px 0 20px; padding: 12px; background: rgba(255, 59, 48, 0.1); color: var(--danger); border-radius: 8px;">
+    {{ $errors->first() }}
+</div>
+@endif
+
 <div style="padding: 20px; padding-bottom: 80px;">
+    <!-- Bagian Ganti Password -->
+    <div class="card" style="margin-bottom: 24px; padding: 16px; background: linear-gradient(135deg, rgba(0,0,0,0.02), rgba(0,0,0,0.05));">
+        <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+            <i class="material-symbols-rounded" style="font-size: 20px;">lock_reset</i> Ganti Password Superadmin
+        </h3>
+        <form action="{{ route('superadmin.change-password') }}" method="POST" style="display: flex; gap: 8px;">
+            @csrf
+            <input type="password" name="password" class="form-control" placeholder="Masukkan password baru..." required style="flex: 1; height: 44px; border-radius: 8px; border: 1px solid var(--border); padding: 0 12px;">
+            <button type="submit" class="btn btn-primary" style="height: 44px; padding: 0 16px; border-radius: 8px; font-weight: 600;">Simpan</button>
+        </form>
+    </div>
+    
+    <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--text-main);">Daftar Workspace</h3>
+
     @forelse($workspaces as $workspace)
     <div class="card" style="margin: 0 0 16px 0; padding: 16px; border-left: 4px solid {{ $workspace->status ? 'var(--success)' : 'var(--danger)' }};">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
