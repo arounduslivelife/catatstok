@@ -10,6 +10,7 @@ class Product extends Model
     use BelongsToWorkspace;
 
     protected $fillable = ['workspace_id', 'code', 'name', 'unit'];
+    protected $appends = ['stock'];
 
     public function workspace()
     {
