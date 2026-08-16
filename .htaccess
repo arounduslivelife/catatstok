@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # If the requested file exists in public/ (e.g. css/app.css), serve it from there
+    RewriteCond %{DOCUMENT_ROOT}/catatstok/public/$1 -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/catatstok/public/$1 -d
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # Otherwise route to index.php in root
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>
