@@ -13,10 +13,6 @@
 
 <!-- Hero Section -->
 <div style="text-align: center; padding: 40px 20px; background: linear-gradient(180deg, var(--bg-color) 0%, rgba(0,122,255,0.05) 100%); border-bottom: 1px solid var(--border);">
-    <div style="display: inline-block; background: rgba(0,122,255,0.1); color: var(--primary); padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.5px;">
-        SISTEM SAAS TERBAIK 2026
-    </div>
-    
     <h1 style="font-size: 32px; line-height: 1.2; font-weight: 800; color: var(--text-main); margin-bottom: 16px; letter-spacing: -1px;">
         Kelola Stok Toko Anda Tanpa Ribet
     </h1>
