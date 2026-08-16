@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Workspace;
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return view('welcome', ['hideNav' => true]);
 });
 
 Route::get('/login', function () {
