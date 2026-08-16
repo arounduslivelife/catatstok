@@ -9,6 +9,12 @@
         <p style="color: var(--text-muted);">Aplikasi Manajemen Stok Ringkas</p>
     </div>
     
+    @if($errors->any())
+    <div style="margin-bottom: 20px; padding: 12px; background: rgba(255, 59, 48, 0.1); color: var(--danger); border: 1px solid var(--danger); border-radius: 8px; font-size: 14px; text-align: center;">
+        {{ $errors->first() }}
+    </div>
+    @endif
+    
     <form action="{{ route('login') }}" method="POST">
         @csrf
         <div class="form-group">
