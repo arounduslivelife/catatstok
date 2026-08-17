@@ -20,4 +20,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::apiResource('products', ProductController::class);
     Route::apiResource('transactions', TransactionController::class);
+    Route::apiResource('staff', \App\Http\Controllers\Api\StaffController::class);
 });

@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return Product::all();
+        return Product::with(['transactionItems.transaction.creator'])->get();
     }
 
     public function store(Request $request)
