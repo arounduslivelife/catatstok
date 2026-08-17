@@ -39,6 +39,9 @@
                 <i class="material-symbols-rounded" style="font-size: 28px;">group_add</i>
             </a>
             @endif
+            <button onclick="openChangePasswordModal()" style="background: none; border: none; color: white; cursor: pointer; opacity: 0.9;">
+                <i class="material-symbols-rounded" style="font-size: 28px;">account_circle</i>
+            </button>
             <form action="{{ url('/logout') }}" method="POST">
                 @csrf
                 <button type="submit" style="background: none; border: none; color: white; cursor: pointer; opacity: 0.9;">
@@ -129,6 +132,48 @@
     </div>
 </div>
 
+<!-- Modal Ganti Password -->
+<div id="modal-change-password" class="modal" style="display: {{ $errors->has('current_password') || $errors->has('new_password') || session('success') ? 'flex' : 'none' }}; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: white; width: 100%; max-width: 400px; border-radius: 20px; padding: 24px; animation: scaleUp 0.2s ease-out; position: relative;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="margin: 0; font-size: 18px;">Ganti Password</h3>
+            <button onclick="closeChangePasswordModal()" style="background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px;">
+                <i class="material-symbols-rounded" style="font-size: 24px;">close</i>
+            </button>
+        </div>
+
+        @if(session('success'))
+            <div style="padding: 12px; background: var(--success); color: white; border-radius: 8px; margin-bottom: 16px; font-size: 14px; text-align: center;">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if($errors->any())
+            <div style="padding: 12px; background: rgba(255, 59, 48, 0.1); color: var(--danger); border: 1px solid var(--danger); border-radius: 8px; margin-bottom: 16px; font-size: 14px; text-align: center;">
+                {{ $errors->first() }}
+            </div>
+        @endif
+        
+        <form action="{{ route('change-password') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label>Password Saat Ini</label>
+                <input type="password" name="current_password" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Password Baru</label>
+                <input type="password" name="new_password" class="form-control" required minlength="6">
+            </div>
+            <div class="form-group">
+                <label>Konfirmasi Password Baru</label>
+                <input type="password" name="new_password_confirmation" class="form-control" required minlength="6">
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Ubah Password</button>
+        </form>
+    </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
@@ -167,10 +212,21 @@ function showInstantStock(selectElement) {
     else valueEl.style.color = 'var(--text-main)';
 }
 
+function openChangePasswordModal() {
+    document.getElementById('modal-change-password').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeChangePasswordModal() {
+    document.getElementById('modal-change-password').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
 // Close modal when clicking outside
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
         closeInstantCheck();
+        closeChangePasswordModal();
     }
 }
 </script>

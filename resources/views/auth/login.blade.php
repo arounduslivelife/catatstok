@@ -23,7 +23,15 @@
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+            <div style="position: relative;">
+                <input type="password" name="password" id="passwordField" class="form-control" placeholder="••••••••" required>
+                <i class="material-symbols-rounded" id="togglePassword" style="position: absolute; right: 12px; top: 12px; color: var(--text-muted); cursor: pointer; user-select: none;" onclick="togglePasswordVisibility()">visibility</i>
+            </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+            <input type="checkbox" name="remember" id="remember" value="1" style="width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer;">
+            <label for="remember" style="margin: 0; font-size: 14px; color: var(--text-main); cursor: pointer;">Tetap Masuk (Remember Me)</label>
         </div>
         
         <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Login</button>
@@ -34,4 +42,19 @@
         <a href="{{ url('/register') }}" style="color: var(--primary); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 8px;">Daftar Perusahaan Baru</a>
     </p>
 </div>
+
+<script>
+function togglePasswordVisibility() {
+    const passwordField = document.getElementById('passwordField');
+    const toggleIcon = document.getElementById('togglePassword');
+    
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleIcon.innerText = 'visibility_off';
+    } else {
+        passwordField.type = 'password';
+        toggleIcon.innerText = 'visibility';
+    }
+}
+</script>
 @endsection

@@ -21,4 +21,19 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('products', ProductController::class);
     Route::apiResource('transactions', TransactionController::class);
     Route::apiResource('staff', \App\Http\Controllers\Api\StaffController::class);
+    
+    Route::post('/user/change-password', function(Request $request) {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:6'
+        ]);
+
+        $user = $request->user();
+        if (!\Illuminate\Support\Facades\Hash::check($request->current_password, $user->password)) {
+            return response()->json(['message' => 'Password saat ini salah.'], 400);
+        }
+
+        $user->update(['password' => \Illuminate\Support\Facades\Hash::make($request->new_password)]);
+        return response()->json(['message' => 'Password berhasil diubah!']);
+    });
 });

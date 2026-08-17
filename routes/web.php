@@ -22,7 +22,7 @@ Route::post('/login', function(Request $request) {
         'password' => 'required'
     ]);
     
-    if (Auth::attempt($credentials)) {
+    if (Auth::attempt($credentials, $request->has('remember'))) {
         $request->session()->regenerate();
         
         $user = Auth::user();
@@ -114,6 +114,21 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/staff', [App\Http\Controllers\Web\StaffController::class, 'index'])->name('staff.index');
     Route::post('/staff', [App\Http\Controllers\Web\StaffController::class, 'store'])->name('staff.store');
+    
+    Route::post('/change-password', function(Request $request) {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:6|confirmed'
+        ]);
+
+        $user = Auth::user();
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Password saat ini salah.']);
+        }
+
+        $user->update(['password' => Hash::make($request->new_password)]);
+        return back()->with('success', 'Password berhasil diubah!');
+    })->name('change-password');
 });
 
 Route::middleware(['auth', 'superadmin'])->prefix('superadmin')->group(function() {
