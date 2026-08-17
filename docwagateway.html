@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://app.botgateway.my.id/api-docs -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="Wc8WEuftCiXk7qfakXKT3DIc6BAZ9e03zxCobGNf">
+
+    <title>API Docs | WA Gateway</title>
+
+    <link rel="icon" href="https://app.botgateway.my.id/assets/images/favicon.png" type="image/png">
+    <link href="./docwagateway_files/css2" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="./docwagateway_files/toastr.min.css">
+
+    
+    <script src="./docwagateway_files/jquery.min.js.download"></script>
+    <script src="./docwagateway_files/toastr.min.js.download"></script>
+
+    
+    <link rel="preload" as="style" href="./docwagateway_files/app-CFm3m1dI.css"><link rel="modulepreload" href="./docwagateway_files/app-CAyx1Oct.js.download"><link rel="stylesheet" href="./docwagateway_files/app-CFm3m1dI.css"><script type="module" src="./docwagateway_files/app-CAyx1Oct.js.download"></script></head>
+
+<body class="bg-gray-100 font-roboto" x-data="">
+
+    <div class="flex min-h-screen">
+
+        <aside x-data="" :class="$store.sidebar.open ? &#39;translate-x-0&#39; : &#39;-translate-x-full&#39;" class="fixed lg:sticky lg:translate-x-0 top-0 left-0 h-screen w-64 bg-gray-950 text-gray-300 flex flex-col z-40 transition-transform duration-300 ease-in-out -translate-x-full">
+
+    
+    <div class="flex items-center gap-3 px-5 py-5 border-b border-gray-800">
+        <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center flex-shrink-0">
+            <img src="./docwagateway_files/logo-icon.png" class="w-5 h-5 object-contain" alt="logo">
+        </div>
+        <div>
+            <p class="text-sm font-semibold text-white">WA Gateway</p>
+           
+        </div>
+    </div>
+
+    
+    <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-0.5">
+
+        <a href="https://app.botgateway.my.id/home" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors
+                   text-gray-400 hover:bg-gray-800 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout-dashboard" aria-hidden="true" class="lucide lucide-layout-dashboard w-4 h-4 flex-shrink-0"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
+            Dasbor
+        </a>
+
+        <a href="https://app.botgateway.my.id/file-manager" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors
+                   text-gray-400 hover:bg-gray-800 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="folder" aria-hidden="true" class="lucide lucide-folder w-4 h-4 flex-shrink-0"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg>
+            Manajer Berkas
+        </a>
+
+        <a href="https://app.botgateway.my.id/phonebook" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors
+                   text-gray-400 hover:bg-gray-800 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-user" aria-hidden="true" class="lucide lucide-book-user w-4 h-4 flex-shrink-0"><path d="M15 13a3 3 0 1 0-6 0"></path><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"></path><circle cx="12" cy="8" r="2"></circle></svg>
+            Buku Telepon
+        </a>
+
+        
+        <div x-data="{ open: false }">
+            <button @click="open = !open" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-400
+                       hover:bg-gray-800 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bar-chart-2" aria-hidden="true" class="lucide lucide-bar-chart-2 w-4 h-4 flex-shrink-0"><path d="M5 21v-6"></path><path d="M12 21V3"></path><path d="M19 21V9"></path></svg>
+                <span class="flex-1 text-left">Laporan</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-3 h-3 transition-transform duration-200" :class="open ? &#39;rotate-90&#39; : &#39;&#39;"><path d="m9 18 6-6-6-6"></path></svg>
+            </button>
+            <div x-show="open" x-transition="" class="ml-7 mt-0.5 space-y-0.5" style="display: none;">
+                <a href="https://app.botgateway.my.id/campaigns" class="flex items-center gap-2 px-3 py-2 rounded-lg text-xs transition-colors
+                           text-gray-500 hover:text-white hover:bg-gray-800">
+                    <span class="w-1 h-1 rounded-full bg-current"></span>
+                    Kampanye / Blast
+                </a>
+                <a href="https://app.botgateway.my.id/messages-history" class="flex items-center gap-2 px-3 py-2 rounded-lg text-xs transition-colors
+                           text-gray-500 hover:text-white hover:bg-gray-800">
+                    <span class="w-1 h-1 rounded-full bg-current"></span>
+                    Riwayat Pesan
+                </a>
+            </div>
+        </div>
+
+        <div class="py-2 border-t border-b border-gray-800 my-1">
+            <div x-data="" x-init="
+    document.getElementById(&#39;device_idd&#39;).addEventListener(&#39;change&#39;, function() {
+        fetch(&#39;https://app.botgateway.my.id/home/setSessionSelectedDevice&#39;, {
+            method: &#39;POST&#39;,
+            headers: {
+                &#39;Content-Type&#39;: &#39;application/json&#39;,
+                &#39;X-CSRF-TOKEN&#39;: &#39;Wc8WEuftCiXk7qfakXKT3DIc6BAZ9e03zxCobGNf&#39;
+            },
+            body: JSON.stringify({ device: this.value })
+        })
+        .then(r =&gt; r.json())
+        .then(data =&gt; {
+            if (data.error) {
+                toastr.error(data.msg);
+            } else {
+                toastr.success(data.msg);
+            }
+            setTimeout(() =&gt; location.reload(), 1000);
+        });
+    });
+">
+    <div class="px-3 py-2">
+        <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1.5 px-1">
+            Active Device
+        </label>
+        <div class="relative">
+            <select id="device_idd" name="device_id" class="w-full appearance-none bg-gray-800 border border-gray-700 text-gray-200 text-sm
+                       rounded-lg px-3 py-2.5 pr-8 cursor-pointer
+                       focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-gray-600
+                       hover:bg-gray-750 transition-colors">
+                <option value="" disabled="" selected="">
+                    Pilih Perangkat
+                </option>
+                                <option value="10">
+                    6285155435918 (Connected)
+                </option>
+                            </select>
+            
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" aria-hidden="true" class="lucide lucide-chevron-down w-3.5 h-3.5 text-gray-400"><path d="m6 9 6 6 6-6"></path></svg>
+            </div>
+        </div>
+    </div>
+</div>        </div>
+
+        
+        <a href="https://app.botgateway.my.id/api-docs" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors
+                   bg-white text-gray-900 font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="code-2" aria-hidden="true" class="lucide lucide-code-2 w-4 h-4 flex-shrink-0"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
+            Dokumen API
+        </a>
+
+        
+    </nav>
+</aside>
+
+
+<div x-data="" x-show="$store.sidebar.open" @click="$store.sidebar.close()" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-black/50 z-30 lg:hidden" style="display: none;">
+</div>
+        <div class="flex flex-col flex-1 min-w-0">
+
+            <header class="h-16 bg-white border-b border-gray-100 flex items-center px-6 gap-4 sticky top-0 z-30">
+
+    
+    <button @click="$store.sidebar.toggle()" class="lg:hidden text-gray-500 hover:text-gray-900 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" aria-hidden="true" class="lucide lucide-menu w-5 h-5"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+    </button>
+
+    
+    <div class="relative hidden md:flex items-center flex-1 max-w-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" aria-hidden="true" class="lucide lucide-search w-4 h-4 absolute left-3 text-gray-400"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
+        <input type="text" placeholder="Search..." class="w-full pl-9 pr-4 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg
+                   focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent
+                   placeholder:text-gray-400 transition-all">
+    </div>
+
+    <div class="ml-auto flex items-center gap-2">
+
+        
+        <div class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="flex items-center gap-1.5 px-3 py-2 text-sm text-gray-600 hover:text-gray-900
+                       hover:bg-gray-50 rounded-lg transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="globe" aria-hidden="true" class="lucide lucide-globe w-4 h-4"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                <span class="hidden sm:inline">Bahasa</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" aria-hidden="true" class="lucide lucide-chevron-down w-3 h-3"><path d="m6 9 6 6 6-6"></path></svg>
+            </button>
+
+            <div x-show="open" @click.outside="open = false" x-transition="" class="absolute right-0 mt-1 w-40 bg-white border border-gray-100 rounded-xl shadow-lg py-1 z-50" style="display: none;">
+                                <a href="https://app.botgateway.my.id/id/api-docs" rel="alternate" hreflang="id" class="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                    <span class="font-medium text-xs text-gray-400 uppercase">id</span>
+                    Bahasa Indonesia
+                </a>
+                                <a href="https://app.botgateway.my.id/en/api-docs" rel="alternate" hreflang="en" class="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                    <span class="font-medium text-xs text-gray-400 uppercase">en</span>
+                    English
+                </a>
+                                <a href="https://app.botgateway.my.id/es/api-docs" rel="alternate" hreflang="es" class="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                    <span class="font-medium text-xs text-gray-400 uppercase">es</span>
+                    español
+                </a>
+                                <a href="https://app.botgateway.my.id/ar/api-docs" rel="alternate" hreflang="ar" class="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                    <span class="font-medium text-xs text-gray-400 uppercase">ar</span>
+                    العربية
+                </a>
+                                <a href="https://app.botgateway.my.id/hi/api-docs" rel="alternate" hreflang="hi" class="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                    <span class="font-medium text-xs text-gray-400 uppercase">hi</span>
+                    हिन्दी
+                </a>
+                            </div>
+        </div>
+
+        
+        <div class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="flex items-center gap-2.5 pl-2 pr-3 py-1.5 hover:bg-gray-50 rounded-xl transition-colors">
+                <img src="./docwagateway_files/avatar-1.png" class="w-8 h-8 rounded-full object-cover ring-2 ring-gray-100" alt="avatar">
+                <div class="hidden sm:block text-left">
+                    <p class="text-sm font-medium text-gray-900 leading-none">aroundus</p>
+                    <p class="text-xs text-gray-400 mt-0.5 capitalize">user</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" aria-hidden="true" class="lucide lucide-chevron-down w-3 h-3 text-gray-400"><path d="m6 9 6 6 6-6"></path></svg>
+            </button>
+
+            <div x-show="open" @click.outside="open = false" x-transition="" class="absolute right-0 mt-1 w-52 bg-white border border-gray-100 rounded-xl shadow-lg py-1 z-50" style="display: none;">
+
+                <div class="px-3 py-2.5 border-b border-gray-100">
+                    <p class="text-sm font-medium text-gray-900">aroundus</p>
+                    <p class="text-xs text-gray-400 capitalize mt-0.5">user</p>
+                </div>
+
+                <a href="https://app.botgateway.my.id/user/settings" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="settings" aria-hidden="true" class="lucide lucide-settings w-4 h-4 text-gray-400"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    Pengaturan
+                </a>
+
+                <div class="border-t border-gray-100 mt-1 pt-1">
+                    <form action="https://app.botgateway.my.id/logout" method="post">
+                        <input type="hidden" name="_token" value="Wc8WEuftCiXk7qfakXKT3DIc6BAZ9e03zxCobGNf">                        <button type="submit" class="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="log-out" aria-hidden="true" class="lucide lucide-log-out w-4 h-4"><path d="m16 17 5-5-5-5"></path><path d="M21 12H9"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path></svg>
+                            Keluar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+            <main class="flex-1 p-6">
+                <nav class="flex items-center gap-1.5 text-xs text-slate-400 mb-1.5">
+        <span>API</span>
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+        <span class="text-slate-700 font-semibold">Documentation</span>
+    </nav>
+    <h1 class="text-xl font-bold text-slate-900 tracking-tight mb-6">API Documentation</h1>
+
+    
+    <div x-data="{ activeTab: &#39;sendmessage&#39; }">
+
+        
+        <div class="lg:hidden mb-4 -mx-6 px-6 overflow-x-auto">
+            <div class="flex gap-1.5 w-max pb-2">
+                                                <button @click="activeTab = &#39;sendmessage&#39;" :class="activeTab === &#39;sendmessage&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-slate-900 text-white shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="send" aria-hidden="true" class="lucide lucide-send w-3.5 h-3.5 shrink-0"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+                    Send Message
+                </button>
+                                <button @click="activeTab = &#39;sendmedia&#39;" :class="activeTab === &#39;sendmedia&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="image" aria-hidden="true" class="lucide lucide-image w-3.5 h-3.5 shrink-0"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+                    Send Media
+                </button>
+                                <button @click="activeTab = &#39;sendpoll&#39;" :class="activeTab === &#39;sendpoll&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bar-chart-2" aria-hidden="true" class="lucide lucide-bar-chart-2 w-3.5 h-3.5 shrink-0"><path d="M5 21v-6"></path><path d="M12 21V3"></path><path d="M19 21V9"></path></svg>
+                    Send Poll
+                </button>
+                                <button @click="activeTab = &#39;sendsticker&#39;" :class="activeTab === &#39;sendsticker&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="smile" aria-hidden="true" class="lucide lucide-smile w-3.5 h-3.5 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x2="9.01" y1="9" y2="9"></line><line x1="15" x2="15.01" y1="9" y2="9"></line></svg>
+                    Send Sticker
+                </button>
+                                <button @click="activeTab = &#39;sendbutton&#39;" :class="activeTab === &#39;sendbutton&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout-template" aria-hidden="true" class="lucide lucide-layout-template w-3.5 h-3.5 shrink-0"><rect width="18" height="7" x="3" y="3" rx="1"></rect><rect width="9" height="7" x="3" y="14" rx="1"></rect><rect width="5" height="7" x="16" y="14" rx="1"></rect></svg>
+                    Send Button
+                </button>
+                                <button @click="activeTab = &#39;sendlist&#39;" :class="activeTab === &#39;sendlist&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="list" aria-hidden="true" class="lucide lucide-list w-3.5 h-3.5 shrink-0"><path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path></svg>
+                    Send List
+                </button>
+                                <button @click="activeTab = &#39;sendlocation&#39;" :class="activeTab === &#39;sendlocation&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-3.5 h-3.5 shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Send Location
+                </button>
+                                <button @click="activeTab = &#39;sendvcard&#39;" :class="activeTab === &#39;sendvcard&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="contact" aria-hidden="true" class="lucide lucide-contact w-3.5 h-3.5 shrink-0"><path d="M16 2v2"></path><path d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path><path d="M8 2v2"></path><circle cx="12" cy="11" r="3"></circle><rect x="3" y="4" width="18" height="18" rx="2"></rect></svg>
+                    Send Vcard
+                </button>
+                                <button @click="activeTab = &#39;generateqr&#39;" :class="activeTab === &#39;generateqr&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="qr-code" aria-hidden="true" class="lucide lucide-qr-code w-3.5 h-3.5 shrink-0"><rect width="5" height="5" x="3" y="3" rx="1"></rect><rect width="5" height="5" x="16" y="3" rx="1"></rect><rect width="5" height="5" x="3" y="16" rx="1"></rect><path d="M21 16h-3a2 2 0 0 0-2 2v3"></path><path d="M21 21v.01"></path><path d="M12 7v3a2 2 0 0 1-2 2H7"></path><path d="M3 12h.01"></path><path d="M12 3h.01"></path><path d="M12 16v.01"></path><path d="M16 12h1"></path><path d="M21 12v.01"></path><path d="M12 21v-1"></path></svg>
+                    Generate QR
+                </button>
+                                <button @click="activeTab = &#39;disconnectdevice&#39;" :class="activeTab === &#39;disconnectdevice&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plug-zap" aria-hidden="true" class="lucide lucide-plug-zap w-3.5 h-3.5 shrink-0"><path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z"></path><path d="m2 22 3-3"></path><path d="M7.5 13.5 10 11"></path><path d="M10.5 16.5 13 14"></path><path d="m18 3-4 4h6l-4 4"></path></svg>
+                    Disconnect
+                </button>
+                                <button @click="activeTab = &#39;createuser&#39;" :class="activeTab === &#39;createuser&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="user-plus" aria-hidden="true" class="lucide lucide-user-plus w-3.5 h-3.5 shrink-0"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" x2="19" y1="8" y2="14"></line><line x1="22" x2="16" y1="11" y2="11"></line></svg>
+                    Create User
+                </button>
+                                <button @click="activeTab = &#39;userinfo&#39;" :class="activeTab === &#39;userinfo&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="user" aria-hidden="true" class="lucide lucide-user w-3.5 h-3.5 shrink-0"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    User Info
+                </button>
+                                <button @click="activeTab = &#39;deviceinfo&#39;" :class="activeTab === &#39;deviceinfo&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="smartphone" aria-hidden="true" class="lucide lucide-smartphone w-3.5 h-3.5 shrink-0"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+                    Device Info
+                </button>
+                                <button @click="activeTab = &#39;createdevice&#39;" :class="activeTab === &#39;createdevice&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="tablet-smartphone" aria-hidden="true" class="lucide lucide-tablet-smartphone w-3.5 h-3.5 shrink-0"><rect width="10" height="14" x="3" y="8" rx="2"></rect><path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4"></path><path d="M8 18h.01"></path></svg>
+                    Create Device
+                </button>
+                                <button @click="activeTab = &#39;checknumber&#39;" :class="activeTab === &#39;checknumber&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone-incoming" aria-hidden="true" class="lucide lucide-phone-incoming w-3.5 h-3.5 shrink-0"><path d="M16 2v6h6"></path><path d="m22 2-6 6"></path><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+                    Check Number
+                </button>
+                                <button @click="activeTab = &#39;examplewebhook&#39;" :class="activeTab === &#39;examplewebhook&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300&#39;" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[12px] font-medium whitespace-nowrap transition-all duration-150 bg-white text-slate-500 border border-slate-200 hover:text-slate-800 hover:border-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="webhook" aria-hidden="true" class="lucide lucide-webhook w-3.5 h-3.5 shrink-0"><path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2"></path><path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06"></path><path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8"></path></svg>
+                    Webhook
+                </button>
+                            </div>
+        </div>
+
+        
+        <div class="flex gap-6 items-start">
+
+            
+            <aside class="hidden lg:flex w-52 shrink-0 flex-col gap-0.5 sticky top-20">
+                                <button @click="activeTab = &#39;sendmessage&#39;" :class="activeTab === &#39;sendmessage&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 bg-slate-900 text-white shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="send" aria-hidden="true" :class="activeTab === &#39;sendmessage&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-send w-4 h-4 shrink-0 transition-colors text-white"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+                    Send Message
+                </button>
+                                <button @click="activeTab = &#39;sendmedia&#39;" :class="activeTab === &#39;sendmedia&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="image" aria-hidden="true" :class="activeTab === &#39;sendmedia&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-image w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+                    Send Media
+                </button>
+                                <button @click="activeTab = &#39;sendpoll&#39;" :class="activeTab === &#39;sendpoll&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bar-chart-2" aria-hidden="true" :class="activeTab === &#39;sendpoll&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-bar-chart-2 w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><path d="M5 21v-6"></path><path d="M12 21V3"></path><path d="M19 21V9"></path></svg>
+                    Send Poll
+                </button>
+                                <button @click="activeTab = &#39;sendsticker&#39;" :class="activeTab === &#39;sendsticker&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="smile" aria-hidden="true" :class="activeTab === &#39;sendsticker&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-smile w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x2="9.01" y1="9" y2="9"></line><line x1="15" x2="15.01" y1="9" y2="9"></line></svg>
+                    Send Sticker
+                </button>
+                                <button @click="activeTab = &#39;sendbutton&#39;" :class="activeTab === &#39;sendbutton&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout-template" aria-hidden="true" :class="activeTab === &#39;sendbutton&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-layout-template w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><rect width="18" height="7" x="3" y="3" rx="1"></rect><rect width="9" height="7" x="3" y="14" rx="1"></rect><rect width="5" height="7" x="16" y="14" rx="1"></rect></svg>
+                    Send Button
+                </button>
+                                <button @click="activeTab = &#39;sendlist&#39;" :class="activeTab === &#39;sendlist&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="list" aria-hidden="true" :class="activeTab === &#39;sendlist&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-list w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path></svg>
+                    Send List
+                </button>
+                                <button @click="activeTab = &#39;sendlocation&#39;" :class="activeTab === &#39;sendlocation&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" :class="activeTab === &#39;sendlocation&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-map-pin w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Send Location
+                </button>
+                                <button @click="activeTab = &#39;sendvcard&#39;" :class="activeTab === &#39;sendvcard&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="contact" aria-hidden="true" :class="activeTab === &#39;sendvcard&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-contact w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><path d="M16 2v2"></path><path d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path><path d="M8 2v2"></path><circle cx="12" cy="11" r="3"></circle><rect x="3" y="4" width="18" height="18" rx="2"></rect></svg>
+                    Send Vcard
+                </button>
+                                <button @click="activeTab = &#39;generateqr&#39;" :class="activeTab === &#39;generateqr&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="qr-code" aria-hidden="true" :class="activeTab === &#39;generateqr&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-qr-code w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><rect width="5" height="5" x="3" y="3" rx="1"></rect><rect width="5" height="5" x="16" y="3" rx="1"></rect><rect width="5" height="5" x="3" y="16" rx="1"></rect><path d="M21 16h-3a2 2 0 0 0-2 2v3"></path><path d="M21 21v.01"></path><path d="M12 7v3a2 2 0 0 1-2 2H7"></path><path d="M3 12h.01"></path><path d="M12 3h.01"></path><path d="M12 16v.01"></path><path d="M16 12h1"></path><path d="M21 12v.01"></path><path d="M12 21v-1"></path></svg>
+                    Generate QR
+                </button>
+                                <button @click="activeTab = &#39;disconnectdevice&#39;" :class="activeTab === &#39;disconnectdevice&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plug-zap" aria-hidden="true" :class="activeTab === &#39;disconnectdevice&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-plug-zap w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z"></path><path d="m2 22 3-3"></path><path d="M7.5 13.5 10 11"></path><path d="M10.5 16.5 13 14"></path><path d="m18 3-4 4h6l-4 4"></path></svg>
+                    Disconnect
+                </button>
+                                <button @click="activeTab = &#39;createuser&#39;" :class="activeTab === &#39;createuser&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="user-plus" aria-hidden="true" :class="activeTab === &#39;createuser&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-user-plus w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" x2="19" y1="8" y2="14"></line><line x1="22" x2="16" y1="11" y2="11"></line></svg>
+                    Create User
+                </button>
+                                <button @click="activeTab = &#39;userinfo&#39;" :class="activeTab === &#39;userinfo&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="user" aria-hidden="true" :class="activeTab === &#39;userinfo&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-user w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    User Info
+                </button>
+                                <button @click="activeTab = &#39;deviceinfo&#39;" :class="activeTab === &#39;deviceinfo&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="smartphone" aria-hidden="true" :class="activeTab === &#39;deviceinfo&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-smartphone w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+                    Device Info
+                </button>
+                                <button @click="activeTab = &#39;createdevice&#39;" :class="activeTab === &#39;createdevice&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="tablet-smartphone" aria-hidden="true" :class="activeTab === &#39;createdevice&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-tablet-smartphone w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><rect width="10" height="14" x="3" y="8" rx="2"></rect><path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4"></path><path d="M8 18h.01"></path></svg>
+                    Create Device
+                </button>
+                                <button @click="activeTab = &#39;checknumber&#39;" :class="activeTab === &#39;checknumber&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone-incoming" aria-hidden="true" :class="activeTab === &#39;checknumber&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-phone-incoming w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><path d="M16 2v6h6"></path><path d="m22 2-6 6"></path><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+                    Check Number
+                </button>
+                                <button @click="activeTab = &#39;examplewebhook&#39;" :class="activeTab === &#39;examplewebhook&#39;
+                    ? &#39;bg-slate-900 text-white shadow-sm&#39;
+                    : &#39;text-slate-500 hover:text-slate-800 hover:bg-slate-100&#39;" class="group flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium w-full text-left transition-all duration-150 text-slate-500 hover:text-slate-800 hover:bg-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="webhook" aria-hidden="true" :class="activeTab === &#39;examplewebhook&#39; ? &#39;text-white&#39; : &#39;text-slate-400 group-hover:text-slate-600&#39;" class="lucide lucide-webhook w-4 h-4 shrink-0 transition-colors text-slate-400 group-hover:text-slate-600"><path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2"></path><path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06"></path><path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8"></path></svg>
+                    Webhook
+                </button>
+                            </aside>
+
+            
+            <div class="flex-1 min-w-0">
+
+                <div x-show="activeTab === &#39;sendmessage&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+                    <div class="tab-pane fade show active" id="sendmessage" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Send Message</h2>
+        <p class="text-sm text-slate-500">Send a plain text message to a WhatsApp number.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/send-message</code>
+    </div>
+
+    <div class="mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">sender</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Number of your device</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">number</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Recipient number e.g. 72888xxxx | 62888xxxx</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">message</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Message to be sent</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">request.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "api_key": "1234567890",
+  "sender": "62888xxxx",
+  "number": "62888xxxx",
+  "message": "Hello World"
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/send-message?api_key=1234567890&amp;sender=62888xxxx&amp;number=62888xxxx&amp;message=Hello World</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;sendmedia&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="sendmedia" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Send Media</h2>
+        <p class="text-sm text-slate-500">Send image, video, audio, or document via a direct media URL.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/send-media</code>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">sender</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Number of your device</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">number</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Recipient number e.g. 72888xxxx | 62888xxxx</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">media_type</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">
+                            <span class="font-mono text-[11px] bg-slate-100 border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded mr-1">image</span>
+                            <span class="font-mono text-[11px] bg-slate-100 border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded mr-1">video</span>
+                            <span class="font-mono text-[11px] bg-slate-100 border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded mr-1">audio</span>
+                            <span class="font-mono text-[11px] bg-slate-100 border border-slate-200 text-slate-600 px-1.5 py-0.5 rounded">document</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">caption</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">No</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Caption / message</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">url</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Direct URL of the media file</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <div class="flex items-start gap-2 mb-6 px-3 py-2.5 rounded-lg bg-amber-50 border border-amber-200">
+        <i class="ti ti-alert-triangle text-amber-500 text-[15px] mt-0.5 shrink-0"></i>
+        <p class="text-[13px] text-amber-700">Make sure the URL is a direct link. Links from Google Drive or other cloud storage are not supported.</p>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">request.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "api_key": "1234567890",
+  "sender": "62888xxxx",
+  "number": "62888xxxx",
+  "media_type": "image",
+  "caption": "Hello World",
+  "url": "https://example.com/image.jpg"
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/send-media?api_key=1234567890&amp;sender=62888xxxx&amp;number=62888xxxx&amp;media_type=image&amp;caption=Hello World&amp;url=https://example.com/image.jpg</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;sendpoll&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="sendpoll" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Send Poll</h2>
+        <p class="text-sm text-slate-500">Send an interactive poll message with multiple answer options.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/send-poll</code>
+    </div>
+
+    <div class="mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">sender</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Number of your device</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">number</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Recipient number e.g. 72888xxxx | 62888xxxx</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">name</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Poll question or name</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">option</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">array</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Poll answer options</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">countable</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string <span class="font-mono text-[11px] bg-slate-100 border border-slate-200 text-slate-600 px-1 rounded">1 | 0</span></td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]"><span class="font-mono text-[11px]">1</span> = single vote only, <span class="font-mono text-[11px]">0</span> = multiple votes allowed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">request.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "sender": "6281284838163",
+  "api_key": "yourapikey",
+  "number": "082298859671",
+  "countable": "1",
+  "name": "what color do you like?",
+  "option": ["red", "blue", "yellow"]
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/send-poll?sender=6281284838163&amp;api_key=yourapikey&amp;number=082298859671&amp;name=what color do you like&amp;option=red,blue,yellow</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;sendsticker&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="sendsticker" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Send Sticker</h2>
+        <p class="text-sm text-slate-500">Send a sticker via a direct image URL to a WhatsApp number.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/send-sticker</code>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">sender</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Number of your device</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">number</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Recipient number e.g. 72888xxxx | 62888xxxx</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">url</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Direct URL of the sticker image</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="flex items-start gap-2 mb-6 px-3 py-2.5 rounded-lg bg-amber-50 border border-amber-200">
+        <i class="ti ti-alert-triangle text-amber-500 text-[15px] mt-0.5 shrink-0"></i>
+        <p class="text-[13px] text-amber-700">Make sure the URL is a direct link. Links from Google Drive or other cloud storage are not supported.</p>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">request.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "api_key": "1234567890",
+  "sender": "62888xxxx",
+  "number": "62888xxxx",
+  "url": "https://example.com/image.jpg"
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/send-sticker?api_key=1234567890&amp;sender=62888xxxx&amp;number=62888xxxx&amp;url=https://example.com/image.jpg</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;sendbutton&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="sendbutton" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Send Button</h2>
+        <p class="text-sm text-slate-500">Send an interactive button message supporting reply, call, URL, and copy actions.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/send-button</code>
+    </div>
+
+    <div class="mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">sender</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Number of your device</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">number</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Recipient number e.g. 72888xxxx | 62888xxxx</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">message</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Text of message</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">button</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">array</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Button array, max 5</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">footer</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">No</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Footer text of message</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">url/image</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">No</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Image or video URL</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <div class="flex items-start gap-2 mb-6 px-3 py-2.5 rounded-lg bg-blue-50 border border-blue-200">
+        <i class="ti ti-info-circle text-blue-500 text-[15px] mt-0.5 shrink-0"></i>
+        <p class="text-[13px] text-blue-700">Button types supported: <span class="font-mono font-semibold">reply</span>, <span class="font-mono font-semibold">call</span>, <span class="font-mono font-semibold">url</span>, <span class="font-mono font-semibold">copy</span>.</p>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">request.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "sender": "6281284838163",
+  "api_key": "yourapikey",
+  "number": "082298859671",
+  "url": null,
+  "footer": "optional",
+  "message": "Halo, ini pesan button",
+  "button": [
+    { "type": "reply", "displayText": "mantaps" },
+    { "type": "call", "displayText": "mantaps", "phoneNumber": "082298859671" },
+    { "type": "url", "displayText": "mantaps", "url": "https://google.com" },
+    { "type": "copy", "displayText": "mantaps", "copyCode": "xxxx" }
+  ]
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/send-button?sender=6281284838163&amp;api_key=yourapikey&amp;number=082298859671&amp;url=&amp;footer=optional&amp;message=Halo,ini pesan button&amp;button=button 1,button 2,button 3</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;sendlist&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="sendlist" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Send List Message</h2>
+        <p class="text-sm text-slate-500">Send an interactive list menu message to a WhatsApp number.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/send-list</code>
+    </div>
+
+    <div class="mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">sender</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Number of your device</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">number</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Recipient number e.g. 72888xxxx | 62888xxxx</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">footer</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">No</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Footer of your message</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">title</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Title of your list</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">buttontext</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Text of your button list</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">message</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Text of your message</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">list</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">array</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">List items, min 1 max 10</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">image/url</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">url</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">No</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Fill this to attach an image</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">request.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "sender": "6282298859671",
+  "api_key": "ndUJR38JkvyCfLZ",
+  "number": "082298859671",
+  "name": "pesan list",
+  "footer": "optional",
+  "title": "title list",
+  "buttontext": "ey",
+  "message": "Halo, ini pesan list button",
+  "list": ["sdf", "list2", "list3"]
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/send-list?sender=6282298859671&amp;api_key=ndUJR38JkvyCfLZ&amp;number=082298859671&amp;name=pesan list&amp;footer=optional&amp;title=title list&amp;buttontext=ey&amp;message=Halo,ini pesan list&amp;list=sdf,list2,list3</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;sendlocation&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="sendlocation" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Send Location</h2>
+        <p class="text-sm text-slate-500">Send a GPS location coordinate to a WhatsApp number.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/send-location</code>
+    </div>
+
+    <div class="mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">sender</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Number of your device</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">number</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Recipient number e.g. 72888xxxx | 62888xxxx</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">latitude</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Latitude e.g. 24.121231</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">longitude</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Longitude e.g. 55.1121221</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">request.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "api_key": "1234567890",
+  "sender": "62888xxxx",
+  "number": "62888xxxx",
+  "latitude": "24.121231",
+  "longitude": "55.1121221"
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/send-location?api_key=1234567890&amp;sender=62888xxxx&amp;number=62888xxxx&amp;latitude=24.121231&amp;longitude=55.1121221</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;sendvcard&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="sendvcard" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Send VCard</h2>
+        <p class="text-sm text-slate-500">Send a contact card (VCard) to a WhatsApp number.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/send-vcard</code>
+    </div>
+
+    <div class="mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">sender</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Number of your device</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">number</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Recipient number e.g. 72888xxxx | 62888xxxx</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">name</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Contact name e.g. John Doe</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">phone</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Contact phone number e.g. 62888xxxx</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">request.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "api_key": "1234567890",
+  "sender": "62888xxxx",
+  "number": "62888xxxx",
+  "name": "magd",
+  "phone": "62822xxxx"
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/send-vcard?api_key=1234567890&amp;sender=62888xxxx&amp;number=62888xxxx&amp;name=magd&amp;phone=62822xxxx</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;generateqr&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade e" id="generateqr" role="tabpanel">
+    <h3>Generate QR API</h3>
+    <p>Method : <code class="text-success">POST</code>
+    </p><p>Endpoint: <code>https://app.botgateway.my.id/generate-qr</code></p>
+
+    <p>Request Body : (JSON If POST)
+    </p><table class="table">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>device</td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>Number of your device</td>
+
+            </tr>
+            <tr>
+                <td>api_key</td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>API Key</td>
+            </tr>
+            <tr>
+                <td>force</td>
+                <td>boolean</td>
+                <td>no</td>
+                <td>If true, when device is not exist, it will be created</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <br>
+    <p>Normal Response</p>
+    <pre class="bg-dark text-white">      <code>
+{
+    "status": "processing",
+    "message": "Processing"
+}
+
+// if processing like above,you need to hit the endpoint again to get the result
+// and result will be like this
+{
+    "status": false,
+    "qrcode": "data:image/png;base64,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",
+    "message": "Please scann qrcode"
+}
+
+// the qrcode is base64 encoded.
+// after scanned the qrcode, you need to hit the endpoint again to get last response.
+
+// if already scanned, the response will be like this:
+{
+    "status": false,
+    "msg": "Device already connected!"
+}
+
+      </code>
+      </pre>
+    <p>Failed response</p>
+    <pre class="bg-dark text-white">        <code class="json">
+{
+    "status": false,
+    "msg": "Invalid data!",
+    "errors": {} // list of errors
+}
+        </code>
+      </pre>
+
+
+</div>
+                </div>
+                <div x-show="activeTab === &#39;disconnectdevice&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade e" id="disconnectdevice" role="tabpanel">
+    <h3>Disconnect device</h3>
+    <p>Method : <code class="text-success">POST</code>
+    </p><p>Endpoint: <code>https://app.botgateway.my.id/logout-device</code></p>
+
+    <p>Request Body : (JSON If POST)
+    </p><table class="table">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>sender</td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>Device you want log out</td>
+
+            </tr>
+            <tr>
+                <td>api_key</td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>API Key</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <br>
+    <p>Normal Response</p>
+    <pre class="bg-dark text-white">      <code>
+{
+    "status": true,
+    "message": "device disconnected "
+}
+
+
+      </code>
+      </pre>
+
+
+
+</div>
+                </div>
+                <div x-show="activeTab === &#39;createuser&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="createuser" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Create User</h2>
+        <p class="text-sm text-slate-500">Create a new user account with subscription and device limit settings.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/create-user</code>
+    </div>
+
+    <div class="mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">username</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Username, no special characters</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">password</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">User password</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">email</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Email address</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">expire</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">number</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Subscription expiry in days, e.g. 30</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">limit_device</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">number</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">No</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Max allowed devices, e.g. 10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Request Example</p>
+        <div class="relative rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">request.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "api_key": "1234567890",
+  "username": "magd",
+  "password": "12345678",
+  "email": "ttmttxx@xx.com",
+  "expire": "30",
+  "limit_device": "10"
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="relative rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/create-user?api_key=1234567890&amp;username=magd&amp;password=12345678&amp;email=ttmttxx@xx.com&amp;expire=30&amp;limit_device=10</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;userinfo&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="userinfo" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">User Info</h2>
+        <p class="text-sm text-slate-500">Retrieve detailed information about a specific user account.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/info-user</code>
+    </div>
+
+    <div class="mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">username</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Username, no special characters</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Response Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">response.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "status": true,
+  "info": {
+    "id": 1,
+    "username": "magd",
+    "email": "ttmttxx@xx.com",
+    "email_verified_at": null,
+    "api_key": "ORtg0LwKMZoadhXuwDYg40frCkfaul",
+    "chunk_blast": 0,
+    "level": "admin",
+    "status": "active",
+    "limit_device": 10,
+    "active_subscription": "active",
+    "subscription_expired": "2024-09-14 23:11:31",
+    "created_at": "2024-08-15T16:11:31.000000Z",
+    "updated_at": "2024-08-15T16:11:31.000000Z"
+  }
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/info-user?api_key=1234567890&amp;username=magd</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;deviceinfo&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade " id="deviceinfo" role="tabpanel">
+    <h3>Device Info API</h3>
+    <p>Method : <code class="text-success">POST</code> | <code class="text-primary">GET</code></p>
+    <p>Endpoint: <code>https://app.botgateway.my.id/info-device</code></p>
+
+    <p>Request Body : (JSON If POST) </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>api_key</td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>API Key</td>
+            </tr>
+            <tr>
+                <td>number</td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>any number ex 62888xxxx</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <p>Examplo JSON Request</p>
+    <pre class="bg-dark text-white">      <code>
+    {
+       "status":true,
+       "info":[
+          {
+             "id":1,
+             "user_id":1,
+             "body":"628122xxxxxx",
+             "webhook":null,
+             "status":"Disconnect",
+             "created_at":"2024-08-16T11:07:27.000000Z",
+             "updated_at":"2024-08-16T11:07:27.000000Z",
+             "message_sent":0,
+             "reply_when":"Personal",
+             "wh_read":0,
+             "reject_call":0,
+             "wh_typing":0,
+           
+          }
+       ]
+    }
+      </code>
+      </pre>
+    <p>Example URL Request</p>
+    <pre class="bg-dark text-white">        <code class="json">
+https://app.botgateway.my.id/info-device?api_key=1234567890&amp;number=6281222xxxxx
+        </code>
+      </pre>
+
+
+</div>
+                </div>
+                <div x-show="activeTab === &#39;createdevice&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="createdevice" role="tabpanel">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Create Device</h2>
+        <p class="text-sm text-slate-500">Register a new WhatsApp device under a user account.</p>
+    </div>
+
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/create-device</code>
+    </div>
+
+    <div class="mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">User API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">sender</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Unique sender ID, min. 8 characters</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">urlwebhook</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-slate-500 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">No</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Webhook URL for incoming message callbacks</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Request Example</p>
+        <div class="relative rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">request.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "api_key": "1234567890",
+  "sender": "6282298859671",
+  "urlwebhook": "https://yourdomain.com/webhook"
+}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="relative rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/create-device?api_key=1234567890&amp;sender=6281234567890&amp;urlwebhook=https://yourdomain.com/webhook</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;checknumber&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade" id="checknumber" role="tabpanel">
+
+    
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-1">Check Number</h2>
+        <p class="text-sm text-slate-500">Verify whether a phone number is registered on WhatsApp.</p>
+    </div>
+
+    
+    <div class="flex items-center gap-2 mb-6">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">POST</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">GET</span>
+        <code class="flex-1 text-[13px] bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-mono border border-slate-200">https://app.botgateway.my.id/check-number</code>
+    </div>
+
+    
+    <div class="mb-6">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Request Parameters</p>
+        <div class="rounded-xl border border-slate-200 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Parameter</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Type</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Required</th>
+                        <th class="text-left px-4 py-2.5 text-xs font-semibold text-slate-500">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">api_key</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">API Key</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">sender</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Your number e.g. 62888xxxx</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-2.5 font-mono text-[12px] text-indigo-600">number</td>
+                        <td class="px-4 py-2.5 text-slate-500 text-[13px]">string</td>
+                        <td class="px-4 py-2.5"><span class="text-[11px] font-semibold text-rose-600 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded">Yes</span></td>
+                        <td class="px-4 py-2.5 text-slate-600 text-[13px]">Any number e.g. 62888xxxx</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <div class="mb-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">JSON Response Example</p>
+        <div class="relative rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">response.json</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-slate-200 font-mono overflow-x-auto leading-relaxed"><code>{
+  "status": true,
+  "msg": {
+    "exists": true,
+    "jid": "201111347197@s.whatsapp.net"
+  }
+}</code></pre>
+        </div>
+    </div>
+
+    
+    <div>
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">URL Request Example</p>
+        <div class="relative rounded-xl bg-slate-900 border border-slate-700 overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[11px] text-slate-500 font-mono">GET</span>
+            </div>
+            <pre class="px-4 py-3 text-[13px] text-emerald-400 font-mono overflow-x-auto leading-relaxed"><code>https://app.botgateway.my.id/check-number?api_key=1234567890&amp;sender=6281222xxxxx&amp;number=6281222xxxxx</code></pre>
+        </div>
+    </div>
+
+</div>                </div>
+                <div x-show="activeTab === &#39;examplewebhook&#39;" x-transition:enter="transition-opacity duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" style="display: none;">
+                    <div class="tab-pane fade " id="examplewebhook" role="tabpanel">
+    <h3>Webhook Example</h3>
+    <p>Webhook is a feature that allows you to receive a callback from our server when a message is incoming to your
+        device.
+        You can use this feature for made a dinamic chatbot or whatever you want. </p>
+    <p>We will send a POST request to your webhook url with a JSON body. Here is an example of the JSON body we will
+        send:</p>
+    <pre class="bg-dark text-white">        <code class="json">
+{
+  "device" : "your sender/device"
+  "message" : "message",
+  "from" : "the number of the whatsapp sender",
+  "name" : "the name of the sender",
+  "participant" : "sender number if group",
+  "ppUrl" : "url profile picture sender",
+  "media" : [
+    "caption" : "caption, equal to message",
+    "fileName" : "xxxx.xx",
+    "stream" : [
+        "type" : "Buffer",
+        "data" : "xxxx"
+        ]
+    ],
+    "mimetype" : "image\/jpeg" // depends to media type, could be image,document,audio etc
+    ] // null if no media
+}
+
+        </code>
+      </pre>
+    <br>
+    <p>For example webhook you can see in <a href="https://github.com/Ilmans/webhook-wamp-example.git" target="_blank">
+            <span class="badge bg-primary">Here</span></a></p>
+
+
+
+
+</div>                </div>
+
+            </div>
+        </div>
+    </div>
+            </main>
+
+        </div>
+
+    </div>
+
+    
+    <script>
+        toastr.options = {
+            closeButton: false,
+            debug: false,
+            newestOnTop: false,
+            progressBar: false,
+            positionClass: "toast-top-right",
+            preventDuplicates: false,
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "1000",
+            timeOut: "5000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut",
+        };
+    </script>
+
+    
+    <script src="./docwagateway_files/custom.js.download"></script>
+
+    
+    
+
+
+</body></html>

@@ -29,9 +29,12 @@
             </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px;">
-            <input type="checkbox" name="remember" id="remember" value="1" style="width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer;">
-            <label for="remember" style="margin: 0; font-size: 14px; color: var(--text-main); cursor: pointer;">Tetap Masuk (Remember Me)</label>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" name="remember" id="remember" value="1" style="width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer;">
+                <label for="remember" style="margin: 0; font-size: 14px; color: var(--text-main); cursor: pointer;">Tetap Masuk</label>
+            </div>
+            <a href="{{ route('forgot-password') }}" style="font-size: 14px; color: var(--primary); font-weight: 600; text-decoration: none;">Lupa Password?</a>
         </div>
         
         <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Login</button>

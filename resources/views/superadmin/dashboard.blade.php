@@ -41,6 +41,25 @@
             <button type="submit" class="btn btn-primary" style="width: auto; flex: 0 0 auto; height: 44px; padding: 0 16px; border-radius: 8px; font-weight: 600;">Simpan</button>
         </form>
     </div>
+
+    <!-- Bagian Pengaturan WA Gateway -->
+    <div class="card" style="margin-bottom: 32px; padding: 16px; border-left: 4px solid var(--success); background: linear-gradient(135deg, rgba(0,0,0,0.02), rgba(0,0,0,0.05));">
+        <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+            <i class="material-symbols-rounded" style="font-size: 20px; color: #25D366;">chat</i> Pengaturan WA Gateway (BotGateway)
+        </h3>
+        <form action="{{ route('superadmin.save-settings') }}" method="POST" style="display: flex; flex-direction: column; gap: 12px;">
+            @csrf
+            <div>
+                <label style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px; display: block;">API Key</label>
+                <input type="text" name="wa_api_key" class="form-control" value="{{ \App\Models\Setting::where('key', 'wa_api_key')->value('value') }}" placeholder="Contoh: 1234567890..." required style="width: 100%; height: 44px; border-radius: 8px; border: 1px solid var(--border); padding: 0 12px;">
+            </div>
+            <div>
+                <label style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px; display: block;">Sender Number (Device)</label>
+                <input type="text" name="wa_sender_number" class="form-control" value="{{ \App\Models\Setting::where('key', 'wa_sender_number')->value('value') }}" placeholder="Contoh: 62888xxxx" required style="width: 100%; height: 44px; border-radius: 8px; border: 1px solid var(--border); padding: 0 12px;">
+            </div>
+            <button type="submit" class="btn btn-success" style="align-self: flex-start; background: #25D366; color: white; border: none; height: 44px; padding: 0 20px; border-radius: 8px; font-weight: 600; cursor: pointer;">Simpan Pengaturan WA</button>
+        </form>
+    </div>
     
     <h3 style="font-size: 18px; margin-bottom: 16px; color: var(--text-main);">Daftar Workspace</h3>
 

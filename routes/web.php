@@ -87,6 +87,37 @@ Route::post('/register', function(Request $request) {
     }
 });
 
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password', ['hideNav' => true]);
+})->name('forgot-password');
+
+Route::post('/forgot-password', function(Request $request) {
+    $request->validate(['phone' => 'required']);
+    $user = User::where('phone', $request->phone)->first();
+    
+    if (!$user) {
+        return back()->withErrors(['phone' => 'Nomor HP tidak terdaftar.']);
+    }
+
+    $newPassword = \Illuminate\Support\Str::random(6);
+    $user->password = Hash::make($newPassword);
+    $user->save();
+
+    $apiKey = \App\Models\Setting::where('key', 'wa_api_key')->value('value');
+    $sender = \App\Models\Setting::where('key', 'wa_sender_number')->value('value');
+    
+    if ($apiKey && $sender) {
+        \Illuminate\Support\Facades\Http::post('https://app.botgateway.my.id/send-message', [
+            'api_key' => $apiKey,
+            'sender' => $sender,
+            'number' => $user->phone,
+            'message' => "Halo {$user->username}, password baru Anda untuk aplikasi CatatStok adalah:\n\n*{$newPassword}*\n\nSilakan login dan segera ganti password Anda demi keamanan."
+        ]);
+    }
+
+    return back()->with('success', 'Password baru telah dikirim ke WhatsApp Anda.');
+});
+
 Route::post('/logout', function(Request $request) {
     Auth::logout();
     $request->session()->invalidate();
@@ -138,4 +169,5 @@ Route::middleware(['auth', 'superadmin'])->prefix('superadmin')->group(function(
     Route::post('/workspaces/{workspace}/start-trial', [App\Http\Controllers\Web\SuperAdminController::class, 'startTrial']);
     Route::get('/workspaces/{workspace}/logs', [App\Http\Controllers\Web\SuperAdminController::class, 'logs'])->name('superadmin.logs');
     Route::post('/change-password', [App\Http\Controllers\Web\SuperAdminController::class, 'changePassword'])->name('superadmin.change-password');
+    Route::post('/save-settings', [App\Http\Controllers\Web\SuperAdminController::class, 'saveSettings'])->name('superadmin.save-settings');
 });

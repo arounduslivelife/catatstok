@@ -74,4 +74,17 @@ class SuperAdminController extends Controller
 
         return back()->with('success', 'Password Superadmin berhasil diubah!');
     }
+
+    public function saveSettings(Request $request)
+    {
+        $request->validate([
+            'wa_api_key' => 'required',
+            'wa_sender_number' => 'required',
+        ]);
+
+        \App\Models\Setting::updateOrCreate(['key' => 'wa_api_key'], ['value' => $request->wa_api_key]);
+        \App\Models\Setting::updateOrCreate(['key' => 'wa_sender_number'], ['value' => $request->wa_sender_number]);
+
+        return back()->with('success', 'Pengaturan WA Gateway berhasil disimpan!');
+    }
 }

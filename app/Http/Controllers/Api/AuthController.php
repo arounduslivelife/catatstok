@@ -89,4 +89,32 @@ class AuthController extends Controller
             'message' => 'Successfully logged out'
         ]);
     }
+
+    public function forgotPassword(Request $request)
+    {
+        $request->validate(['phone' => 'required']);
+        $user = User::where('phone', $request->phone)->first();
+        
+        if (!$user) {
+            return response()->json(['message' => 'Nomor HP tidak terdaftar.'], 404);
+        }
+
+        $newPassword = \Illuminate\Support\Str::random(6);
+        $user->password = Hash::make($newPassword);
+        $user->save();
+
+        $apiKey = \App\Models\Setting::where('key', 'wa_api_key')->value('value');
+        $sender = \App\Models\Setting::where('key', 'wa_sender_number')->value('value');
+        
+        if ($apiKey && $sender) {
+            \Illuminate\Support\Facades\Http::post('https://app.botgateway.my.id/send-message', [
+                'api_key' => $apiKey,
+                'sender' => $sender,
+                'number' => $user->phone,
+                'message' => "Halo {$user->username}, password baru Anda untuk aplikasi CatatStok adalah:\n\n*{$newPassword}*\n\nSilakan login dan segera ganti password Anda demi keamanan."
+            ]);
+        }
+
+        return response()->json(['message' => 'Password baru telah dikirim ke WhatsApp Anda.']);
+    }
 }
