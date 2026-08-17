@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\TransactionController;
 
+use App\Http\Controllers\Api\DashboardController;
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -15,6 +17,7 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
     
+    Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::apiResource('products', ProductController::class);
     Route::apiResource('transactions', TransactionController::class);
 });
