@@ -110,6 +110,13 @@
                 </button>
             </form>
         </div>
+        
+        <div style="margin-top: 12px;">
+            <a href="{{ route('superadmin.logs', $workspace->id) }}" class="btn" style="display: block; width: 100%; padding: 10px; font-size: 13px; background: #333; color: white; font-weight: 600; text-align: center; text-decoration: none;">
+                <i class="material-symbols-rounded" style="font-size: 16px; vertical-align: middle; margin-right: 4px;">list_alt</i>
+                Lihat Log Aktivitas
+            </a>
+        </div>
     </div>
     @empty
     <div class="card" style="text-align: center; padding: 40px 20px;">

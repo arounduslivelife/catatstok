@@ -31,7 +31,12 @@
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
         <div style="color: white;">
             <p style="font-size: 13px; opacity: 0.9;">Halo, {{ auth()->user()->username }} 👋</p>
-            <h2 style="font-size: 20px; font-weight: 700;">{{ optional(auth()->user()->workspace)->name ?? 'Workspace' }}</h2>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <h2 style="font-size: 20px; font-weight: 700; margin: 0;">{{ optional(auth()->user()->workspace)->name ?? 'Workspace' }}</h2>
+                @if(optional(auth()->user()->workspace)->is_trial)
+                    <span style="background-color: #FFC107; color: #000; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold;">TRIAL</span>
+                @endif
+            </div>
         </div>
         <div style="display: flex; gap: 8px;">
             @if(auth()->user()->role === 'owner')
@@ -103,6 +108,10 @@
     <button onclick="openInstantCheck()" style="width: 60px; height: 60px; border-radius: 30px; background: var(--primary); color: white; border: none; box-shadow: 0 4px 12px rgba(0,122,255,0.4); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s;" onmousedown="this.style.transform='scale(0.9)';" onmouseup="this.style.transform='scale(1)';">
         <i class="material-symbols-rounded" style="font-size: 32px;">search</i>
     </button>
+</div>
+
+<div style="text-align: center; padding: 20px 0 40px 0; color: var(--text-muted); font-size: 12px;">
+    CatatStok Web App v1.0.0
 </div>
 
 <!-- Modal Cek Stok Instant -->

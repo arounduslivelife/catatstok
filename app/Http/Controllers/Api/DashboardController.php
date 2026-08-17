@@ -33,6 +33,7 @@ class DashboardController extends Controller
 
         return response()->json([
             'workspace_name' => optional($user->workspace)->name ?? 'Workspace',
+            'is_trial' => optional($user->workspace)->is_trial ?? false,
             'total_products' => $totalProducts,
             'trx_in' => $trxIn,
             'trx_out' => $trxOut,

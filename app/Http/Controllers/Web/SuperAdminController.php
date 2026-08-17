@@ -50,6 +50,18 @@ class SuperAdminController extends Controller
         return back()->with('success', 'Status diubah menjadi Trial untuk ' . $workspace->name . '. Masa aktif mengikuti tanggal yang di-set.');
     }
 
+    public function logs(Workspace $workspace)
+    {
+        $logs = \App\Models\ActivityLog::whereHas('user', function($q) use ($workspace) {
+            $q->where('workspace_id', $workspace->id);
+        })
+        ->with('user')
+        ->latest()
+        ->paginate(20);
+
+        return view('superadmin.logs', compact('workspace', 'logs'));
+    }
+
     public function changePassword(Request $request)
     {
         $request->validate([
