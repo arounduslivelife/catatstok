@@ -66,6 +66,12 @@ class AuthController extends Controller
             ]);
         }
 
+        if ($user->role === 'superadmin') {
+            return response()->json([
+                'message' => 'Superadmin tidak dapat login melalui aplikasi mobile.'
+            ], 403);
+        }
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
