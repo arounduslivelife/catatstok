@@ -8,12 +8,19 @@
             <h2 style="margin-bottom: 4px; font-size: 20px;">SaaS Management</h2>
             <p style="color: rgba(255,255,255,0.8); font-size: 14px;">Kelola langganan Workspace</p>
         </div>
-        <form action="{{ url('/logout') }}" method="POST">
-            @csrf
-            <button type="submit" style="background: none; border: none; color: white; cursor: pointer; opacity: 0.8;">
-                <i class="material-symbols-rounded" style="font-size: 28px;">logout</i>
-            </button>
-        </form>
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <a href="{{ route('superadmin.wa-logs') }}" style="color: white; text-decoration: none; display: flex; flex-direction: column; align-items: center; opacity: 0.9;">
+                <i class="material-symbols-rounded" style="font-size: 24px;">history</i>
+                <span style="font-size: 10px;">WA Logs</span>
+            </a>
+            <form action="{{ url('/logout') }}" method="POST" style="margin: 0;">
+                @csrf
+                <button type="submit" style="background: none; border: none; color: white; cursor: pointer; opacity: 0.9; display: flex; flex-direction: column; align-items: center;">
+                    <i class="material-symbols-rounded" style="font-size: 24px;">logout</i>
+                    <span style="font-size: 10px;">Keluar</span>
+                </button>
+            </form>
+        </div>
     </div>
 </div>
 

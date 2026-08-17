@@ -107,12 +107,29 @@ class AuthController extends Controller
         $sender = \App\Models\Setting::where('key', 'wa_sender_number')->value('value');
         
         if ($apiKey && $sender) {
-            \Illuminate\Support\Facades\Http::post('https://app.botgateway.my.id/send-message', [
-                'api_key' => $apiKey,
-                'sender' => $sender,
-                'number' => $user->phone,
-                'message' => "Halo {$user->username}, password baru Anda untuk aplikasi CatatStok adalah:\n\n*{$newPassword}*\n\nSilakan login dan segera ganti password Anda demi keamanan."
-            ]);
+            $messageBody = "Halo {$user->username}, password baru Anda untuk aplikasi CatatStok adalah:\n\n*{$newPassword}*\n\nSilakan login dan segera ganti password Anda demi keamanan.";
+            try {
+                $response = \Illuminate\Support\Facades\Http::post('https://app.botgateway.my.id/send-message', [
+                    'api_key' => $apiKey,
+                    'sender' => $sender,
+                    'number' => $user->phone,
+                    'message' => $messageBody
+                ]);
+
+                \App\Models\WaMessageLog::create([
+                    'phone_number' => $user->phone,
+                    'message' => $messageBody,
+                    'status' => $response->successful() ? 'success' : 'failed',
+                    'response_data' => $response->body()
+                ]);
+            } catch (\Exception $e) {
+                \App\Models\WaMessageLog::create([
+                    'phone_number' => $user->phone,
+                    'message' => $messageBody,
+                    'status' => 'failed',
+                    'response_data' => 'Exception: ' . $e->getMessage()
+                ]);
+            }
         }
 
         return response()->json(['message' => 'Password baru telah dikirim ke WhatsApp Anda.']);

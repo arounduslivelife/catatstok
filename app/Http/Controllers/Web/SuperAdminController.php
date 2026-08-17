@@ -87,4 +87,10 @@ class SuperAdminController extends Controller
 
         return back()->with('success', 'Pengaturan WA Gateway berhasil disimpan!');
     }
+
+    public function waLogs()
+    {
+        $logs = \App\Models\WaMessageLog::latest()->paginate(50);
+        return view('superadmin.wa-logs', compact('logs'));
+    }
 }
