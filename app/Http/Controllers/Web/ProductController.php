@@ -28,4 +28,32 @@ class ProductController extends Controller
         
         return redirect()->back()->with('success', 'Produk berhasil ditambahkan!');
     }
+
+    public function edit(Product $product)
+    {
+        return view('products_edit', compact('product'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+            'code' => 'required|string',
+            'name' => 'required|string',
+            'unit' => 'required|string'
+        ]);
+
+        $product->update($validated);
+        ActivityLog::log('UPDATE_PRODUCT', 'Mengubah produk ' . $product->name);
+        
+        return redirect('/products')->with('success', 'Produk berhasil diperbarui!');
+    }
+
+    public function destroy(Product $product)
+    {
+        $name = $product->name;
+        $product->delete();
+        ActivityLog::log('DELETE_PRODUCT', 'Menghapus produk ' . $name);
+        
+        return redirect('/products')->with('success', 'Produk berhasil dihapus!');
+    }
 }

@@ -150,6 +150,9 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/products', [App\Http\Controllers\Web\ProductController::class, 'index'])->name('products.index');
     Route::post('/products', [App\Http\Controllers\Web\ProductController::class, 'store'])->name('products.store');
+    Route::get('/products/{product}/edit', [App\Http\Controllers\Web\ProductController::class, 'edit'])->name('products.edit');
+    Route::put('/products/{product}', [App\Http\Controllers\Web\ProductController::class, 'update'])->name('products.update');
+    Route::delete('/products/{product}', [App\Http\Controllers\Web\ProductController::class, 'destroy'])->name('products.destroy');
 
     Route::get('/transactions/create', [App\Http\Controllers\Web\TransactionController::class, 'create'])->name('transactions.create');
     Route::post('/transactions', [App\Http\Controllers\Web\TransactionController::class, 'store'])->name('transactions.store');
